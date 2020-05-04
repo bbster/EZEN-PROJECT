@@ -80,3 +80,49 @@
 - spring mvc project
     - 기본적인 mvc 형태로 maven까지 세팅이 되어 생성.
 ```
+
+# db 설계 초안 제시
+
+1. 요구사항 분석하기
+  1 - EzenBucks 웹/앱 페이지에서 커피를 주문하려고 한다.
+  2 - 주문에는 제품,날짜,주문합계 정보를 저장하고 있다.
+  3 - 제품에는 커피, 음식 정보를 저장하고 있다.
+  4 - 커피에는 이름,가격,옵션 정보를 저장하고 있다.
+  5 - 옵션에 대해서 타입과 사이즈 정보를 저장하고 있다.
+  6 - 음식에는 이름,가격 정보를 저장하고 있다.
+
+2. E-R 다이어그램 작성
+
+3. 논리적 설계 / 릴레이션 스키마 및 테이블 명세서 작성
+
+4. 물리적 스키마 작성
+
+주문(Order) / OD_
+주문id(OD_ID) auto increment  NOT NULL
+제품id(PD_ID) foreign key  NOT NULL
+날짜(OD_DATE)
+주문합계(OD_TOTAL)
+
+제품(Product) / PD_
+제품id(PD_ID) auto increment
+커피(CF_ID) foreign key  NULL=TRUE
+음식(FD_ID) foreign key  NULL=TRUE
+
+커피(Coffee) / CF_
+커피id(CF_ID) auto increment
+이름(CF_TITLE)
+가격(CF_PRICE)
+옵션id(OP_ID) foreign key NOT NULL
+
+옵션(Option) / OP_
+옵션id(OP_ID) auto increment
+타입(OP_TYPE) / hot or ice
+사이즈(OP_SIZE) / Short or Tall or Grande or Venti
+
+음식(Food) / FD_
+음식id(FD_ID) auto increment
+이름(FD_TITLE)
+가격(FD_PRICE)
+
+
+![ERD 초안](https://user-images.githubusercontent.com/47348115/80948052-4f65d380-8e2c-11ea-99ad-1375dfa73d66.png)
